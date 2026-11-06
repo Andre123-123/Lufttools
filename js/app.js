@@ -3,7 +3,7 @@
 
 import { esc, toast } from './ui/dom.js';
 
-export const APP_VERSION = '1.0.0';
+export const APP_VERSION = '1.1.0';
 
 const ICON = {
   umrechner: '<path d="M4 9h13l-3-3M20 15H7l3 3"/>',
@@ -33,18 +33,26 @@ function startseite() {
       <span class="tile-icon">${svg(t.id)}</span>
       <span class="tile-text"><b>${esc(t.titel)}</b><small>${esc(t.text)}</small></span>
       <span class="tile-arrow" aria-hidden="true">›</span></a>`;
-  view.innerHTML = `
-    <section class="hero"><h2>Strömungstechnische Rechenhilfen</h2><p>Offline nutzbar – alle Berechnungen laufen auf dem Gerät.</p></section>
-    <nav class="tiles">${TOOLS.filter((t) => !t.sekundaer).map(kachel).join('')}</nav>
+  view.innerHTML = `<div class="home">
+    <section class="hero">
+      <h2>Strömungstechnische Rechenhilfen</h2>
+      <p>Schnell rechnen auf der Baustelle, im Technikraum und im Büro.</p>
+      <div class="hero-badges"><span>Offline</span><span>Auf dem Gerät</span><span>Firmendaten lokal</span></div>
+      <svg class="hero-deko" viewBox="0 0 240 120" aria-hidden="true">
+        <path d="M10 40 C60 10 100 70 150 40 S220 10 236 24"/><path d="M10 72 C60 42 100 102 150 72 S220 42 236 56"/>
+        <path d="M10 104 C50 84 80 112 120 102"/></svg>
+    </section>
+    <nav class="tiles main">${TOOLS.filter((t) => !t.sekundaer).map(kachel).join('')}</nav>
     <h3 class="section-head">Daten</h3>
     <nav class="tiles">${TOOLS.filter((t) => t.sekundaer).map(kachel).join('')}</nav>
-    <p class="footer-note">Version ${APP_VERSION} · Ergebnisse sind Rechenhilfen und ersetzen keine Fachplanung.</p>`;
+    <p class="footer-note">Lufttools · Version ${APP_VERSION}<br>Ergebnisse sind Rechenhilfen und ersetzen keine Fachplanung.</p></div>`;
 }
 
 async function route() {
   const id = location.hash.replace(/^#\/?/, '');
   const tool = TOOLS.find((t) => t.id === id);
   document.querySelectorAll('dialog[open]').forEach((d) => d.close());
+  document.body.dataset.view = tool ? tool.id : 'home';
   if (!tool) {
     startseite();
   } else {

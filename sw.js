@@ -1,7 +1,7 @@
 // Service Worker: hält die App offline verfügbar.
 // Bei jeder Änderung an App-Dateien VERSION erhöhen, damit Geräte das Update erhalten.
 
-const VERSION = 'lufttools-v1.0.0';
+const VERSION = 'lufttools-v1.1.0';
 
 const DATEIEN = [
   './',
