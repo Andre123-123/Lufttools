@@ -3,11 +3,12 @@
 
 import { esc, toast } from './ui/dom.js';
 
-export const APP_VERSION = '1.2.0';
+export const APP_VERSION = '1.3.0';
 
 const ICON = {
   umrechner: '<path d="M4 9h13l-3-3M20 15H7l3 3"/>',
   druckverlust: '<path d="M3 12h4l2-6 4 12 2-6h6"/>',
+  filter: '<rect x="4" y="3" width="4" height="18" rx="2"/><rect x="10" y="3" width="4" height="18" rx="2"/><rect x="16" y="3" width="4" height="18" rx="2"/>',
   geometrie: '<rect x="3" y="11" width="9" height="9"/><circle cx="16.5" cy="7.5" r="4.5"/>',
   firmendaten: '<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>',
 };
@@ -15,6 +16,7 @@ const ICON = {
 const TOOLS = [
   { id: 'umrechner', titel: 'Umrechner', text: 'Volumenstrom · Geschwindigkeit · Querschnitt', laden: () => import('./tools/umrechner.js') },
   { id: 'druckverlust', titel: 'Druckverlust', text: 'Kanal, Rohr, Formteile (ζ), Komponenten', laden: () => import('./tools/druckverlust.js') },
+  { id: 'filter', titel: 'Filterfläche', text: 'Schlauchfilter · Filterflächenbelastung', laden: () => import('./tools/filter.js') },
   { id: 'geometrie', titel: 'Geometrie', text: 'Flächen und Volumen', laden: () => import('./tools/geometrie.js') },
   { id: 'firmendaten', titel: 'Firmendaten', text: 'ζ-Werte, Materialien, Komponenten', laden: () => import('./tools/firmendaten.js'), sekundaer: true },
 ];

@@ -9,6 +9,7 @@ Die App ist nur für den internen Gebrauch im Team gedacht. Sie läuft offline, 
 |---|---|
 | **Umrechner** | Volumenstrom ↔ Geschwindigkeit ↔ Querschnitt (rund, rechteckig, Fläche), Nenndurchmesser-Vorschlag, hydraulischer und gleichwertiger Durchmesser, dynamischer Druck |
 | **Druckverlust** | Strang aus geraden Leitungen (Darcy-Weisbach, Colebrook-White), Formteilen (ζ) und Komponenten (Δp, quadratisch umgerechnet); Luftzustand aus Temperatur und Luftdruck; Stränge speichern und als Text teilen |
+| **Filterfläche** | Schlauchfilter: Filterfläche = n · π · d · L (Mantelfläche); gesucht Anzahl, Filterflächenbelastung oder Volumenstrom; Standardwerte als Schnellauswahl, Übersicht aller Standardlängen mit nächster Standardanzahl |
 | **Geometrie** | 12 Flächen und 10 Körper mit Skizze, darunter Kreisabschnitt und Pyramidenstumpf (Übergangsstück) |
 | **Firmendaten** | Materialien (Rauheit k), ζ-Werte, Komponenten pflegen; Import und Export als JSON-Datei |
 

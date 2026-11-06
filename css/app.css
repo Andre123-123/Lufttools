@@ -270,6 +270,24 @@ body[data-view="home"] main { padding-top: 0; }
 .result.mini .result-row.main { margin: 6px -10px 8px; }
 .result .muted { padding: 8px 0; }
 
+/* ---- Schnellauswahl & Tabellen ---- */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 2px; }
+.chip {
+  border: 0; background: var(--surface-2); color: var(--muted); font-weight: 650; font-size: .84rem;
+  padding: 7px 12px; border-radius: 99px; cursor: pointer; font-variant-numeric: tabular-nums; transition: background .15s, color .15s;
+}
+.chip.active { background: var(--blue); color: #fff; }
+.chip:active { transform: scale(.95); }
+.result-head { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 18px 0 2px; font-weight: 700; }
+.table-wrap { overflow-x: auto; margin: 6px -4px 0; }
+.tbl { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .9rem; }
+.tbl th { text-align: right; font-size: .72rem; color: var(--muted); font-weight: 700; padding: 6px 6px; border-bottom: 1px solid var(--line); }
+.tbl td { text-align: right; padding: 9px 6px; border-bottom: 1px solid var(--line); cursor: pointer; }
+.tbl th:first-child, .tbl td:first-child { text-align: left; }
+.tbl tr.active td { background: var(--blue-soft); color: var(--blue-strong); }
+.tbl tr.active td:first-child { border-radius: 8px 0 0 8px; }
+.tbl tr.active td:last-child { border-radius: 0 8px 8px 0; }
+
 /* ---- Geometrie ---- */
 .shape-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; margin-top: 14px; }
 .shape-btn {

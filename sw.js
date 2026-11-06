@@ -1,7 +1,7 @@
 // Service Worker: hält die App offline verfügbar.
 // Bei jeder Änderung an App-Dateien VERSION erhöhen, damit Geräte das Update erhalten.
 
-const VERSION = 'lufttools-v1.2.0';
+const VERSION = 'lufttools-v1.3.0';
 
 const DATEIEN = [
   './',
@@ -15,10 +15,12 @@ const DATEIEN = [
   './js/core/flow.js',
   './js/core/pressure.js',
   './js/core/geometry.js',
+  './js/core/filter.js',
   './js/data/firmendaten.js',
   './js/tools/umrechner.js',
   './js/tools/druckverlust.js',
   './js/tools/geometrie.js',
+  './js/tools/filter.js',
   './js/tools/firmendaten.js',
   './icons/icon.svg',
   './icons/icon-192.png',
