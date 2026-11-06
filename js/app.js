@@ -3,7 +3,7 @@
 
 import { esc, toast } from './ui/dom.js';
 
-export const APP_VERSION = '1.1.0';
+export const APP_VERSION = '1.2.0';
 
 const ICON = {
   umrechner: '<path d="M4 9h13l-3-3M20 15H7l3 3"/>',
@@ -37,7 +37,6 @@ function startseite() {
     <section class="hero">
       <h2>Strömungstechnische Rechenhilfen</h2>
       <p>Schnell rechnen auf der Baustelle, im Technikraum und im Büro.</p>
-      <div class="hero-badges"><span>Offline</span><span>Auf dem Gerät</span><span>Firmendaten lokal</span></div>
       <svg class="hero-deko" viewBox="0 0 240 120" aria-hidden="true">
         <path d="M10 40 C60 10 100 70 150 40 S220 10 236 24"/><path d="M10 72 C60 42 100 102 150 72 S220 42 236 56"/>
         <path d="M10 104 C50 84 80 112 120 102"/></svg>
@@ -103,3 +102,27 @@ if ('serviceWorker' in navigator && location.protocol !== 'file:') {
 
 // Speicher als dauerhaft markieren (verhindert automatisches Löschen durch den Browser)
 navigator.storage?.persist?.().catch(() => {});
+
+// ---- Hell / Dunkel ----
+
+const themeBtn = document.getElementById('theme');
+const systemDunkel = matchMedia('(prefers-color-scheme: dark)');
+const istDunkel = () => {
+  const t = document.documentElement.dataset.theme;
+  return t ? t === 'dark' : systemDunkel.matches;
+};
+function themeAnzeigen() {
+  const dunkel = istDunkel();
+  document.documentElement.toggleAttribute('data-dark', dunkel);
+  themeBtn.setAttribute('aria-label', dunkel ? 'Helles Design' : 'Dunkles Design');
+  themeBtn.title = themeBtn.getAttribute('aria-label');
+  document.querySelector('meta[name="theme-color"]').content = dunkel ? '#0b4fa8' : '#0057b8';
+}
+themeBtn.addEventListener('click', () => {
+  const neu = istDunkel() ? 'light' : 'dark';
+  document.documentElement.dataset.theme = neu;
+  try { localStorage.setItem('lt.theme', neu); } catch {}
+  themeAnzeigen();
+});
+systemDunkel.addEventListener('change', themeAnzeigen);
+themeAnzeigen();
