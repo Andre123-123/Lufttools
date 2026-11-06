@@ -1,0 +1,8 @@
+# Firmendaten gehören nicht ins Repository (Export-Dateien der App)
+lufttools-firmendaten*.json
+firmendaten*.json
+*.firmendaten.json
+
+node_modules/
+.DS_Store
+Thumbs.db
